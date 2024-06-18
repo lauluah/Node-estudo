@@ -1,0 +1,56 @@
+<!-- views/pesquisar.ejs -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pesquisar por Marca</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Pesquisar carro</h1>
+ 
+  <form action="/pesquisar" method="GET">
+    <label for="marca">Marca</label>
+    <input type="text" id="marca" name="marca" placeholder="Digite a marca">
+    <label for="modelo">Modelo</label>
+    <input type="text" id="modelo" name="modelo" placeholder="Digite o modelo">
+    <button type="submit">Pesquisar</button>
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Marca</th>
+        <th>Modelo</th>
+        <th>Ano</th>
+        <th>Cor</th>
+        <th>Preço</th>
+        <th>Quilometragem</th>
+        <th>Interessados</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tabela2024.forEach(carro => { %>
+        <tr>
+          <td><%= carro.marca %></td>
+          <td><%= carro.modelo %></td>
+          <td><%= carro.ano %></td>
+          <td><%= carro.cor %></td>
+          <td><%= carro.preco %></td>
+          <td><%= carro.quilometragem %></td>
+          <td><%= carro.Interessados %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <button id="buttonVoltar" type="button">Voltar</button>
+
+  <script>
+    const buttonVoltar = document.getElementById('buttonVoltar');
+    buttonVoltar.addEventListener('click', () => {
+     
+      window.location.href = '/'; 
+    });
+  </script>
+</body>
+</html>

@@ -4,7 +4,7 @@ const tabela2024 = [
     "modelo": "corolla",
     "ano": 2020,
     "cor": "prata",
-    "preço": 85000,
+    "preco": 85000,
     "quilometragem": 15000,
     "Interessados": 0
   },
@@ -13,7 +13,7 @@ const tabela2024 = [
     "modelo": "corolla",
     "ano": 2021,
     "cor": "azul",
-    "preço": 87000,
+    "preco": 87000,
     "quilometragem": 12000,
     "Interessados": 0
   },
@@ -22,7 +22,7 @@ const tabela2024 = [
     "modelo": "corolla",
     "ano": 2019,
     "cor": "branco",
-    "preço": 83000,
+    "preco": 83000,
     "quilometragem": 18000,
     "Interessados": 0
   },
@@ -31,7 +31,7 @@ const tabela2024 = [
     "modelo": "civic",
     "ano": 2019,
     "cor": "preto",
-    "preço": 90000,
+    "preco": 90000,
     "quilometragem": 20000,
     "Interessados": 0
   },
@@ -40,7 +40,7 @@ const tabela2024 = [
     "modelo": "civic",
     "ano": 2020,
     "cor": "azul",
-    "preço": 95000,
+    "preco": 95000,
     "quilometragem": 10000,
     "Interessados": 0
   },
@@ -49,7 +49,7 @@ const tabela2024 = [
     "modelo": "civic",
     "ano": 2018,
     "cor": "vermelho",
-    "preço": 88000,
+    "preco": 88000,
     "quilometragem": 22000,
     "Interessados": 0
   },
@@ -58,16 +58,16 @@ const tabela2024 = [
     "modelo": "mustang",
     "ano": 2021,
     "cor": "vermelho",
-    "preço": 300000,
+    "preco": 300000,
     "quilometragem": 5000,
     "Interessados": 0
   },
   {
     "marca": "ford",
-    "modelo": "mustang",
+    "modelo": "mustang2",
     "ano": 2020,
     "cor": "preto",
-    "preço": 290000,
+    "preco": 290000,
     "quilometragem": 8000,
     "Interessados": 0
   },
@@ -76,7 +76,7 @@ const tabela2024 = [
     "modelo": "onix",
     "ano": 2018,
     "cor": "branco",
-    "preço": 55000,
+    "preco": 55000,
     "quilometragem": 25000,
     "Interessados": 0
   },
@@ -85,7 +85,7 @@ const tabela2024 = [
     "modelo": "onix",
     "ano": 2016,
     "cor": "laranja",
-    "preço": 50000,
+    "preco": 50000,
     "quilometragem": 20000,
     "Interessados": 0
   },
@@ -94,10 +94,10 @@ const tabela2024 = [
     "modelo": "onix",
     "ano": 2019,
     "cor": "prata",
-    "preço": 58000,
+    "preco": 58000,
     "quilometragem": 18000,
     "Interessados": 0
   }
 ];
 
-export default tabela2024;
+module.exports = tabela2024;

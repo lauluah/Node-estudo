@@ -1,36 +1,43 @@
-import express from 'express';
-import tabela2024 from './tabela.js';
-
+const express = require("express");
 const app = express();
+const tabela2024 = require('./tabela'); 
+const path = require('path');
+const bodyParser = require('body-parser');
+
+
+app.use(express.static('public'));
 app.use(express.json());
+app.use(bodyParser.json());
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-  res.status(200).send(tabela2024);
+  res.render('index', { tabela2024 });
 });
 
+app.get('/pesquisar', (req, res) => {
+  const { marca, modelo } = req.query;
+  let carrosFiltrados = tabela2024;
 
-app.get('/marca/:marca', (req, res) => {
-  const marcaInformada = req.params.marca.toLocaleLowerCase();
-  const carro = tabela2024.filter((infoCarro) => infoCarro.marca === marcaInformada);
-  if (!carro.length === 0) {
+  if (marca) {
+    const marcaInformada = marca.toLocaleLowerCase();
+    carrosFiltrados = carrosFiltrados.filter((infoCarro) => infoCarro.marca === marcaInformada);
+  }
+
+  if (modelo) {
+    const modeloInformado = modelo.toLocaleLowerCase();
+    carrosFiltrados = carrosFiltrados.filter((infoCarro) => infoCarro.modelo === modeloInformado);
+  }
+  
+  if (!carrosFiltrados.length) {
      res
      .status(404)
-     .send('Essa marca não existe!');
+     .send('Não foram encontrados carros com os critérios de pesquisa informados.');
      return;
   };
-  res.status(200).send(carro);
- });
- 
-app.get('/modelo/:modelo', (req, res) => {
- const modeloInformado = req.params.modelo.toLocaleLowerCase();
- const carro = tabela2024.filter((infoCarro) => infoCarro.modelo === modeloInformado);
- if (!carro) {
-    res
-    .status(404)
-    .send('Esse modelo não existe!');
-    return;
- };
- res.status(200).send(carro);
+
+  res.render('pesquisar', { tabela2024: carrosFiltrados });
 });
 
 app.get('/:modelo/:cor', (req, res) => {
